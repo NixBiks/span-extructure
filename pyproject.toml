@@ -1,0 +1,60 @@
+[tool.poetry]
+name = "span-extructure"
+version = "0.1.0"
+description = ""
+authors = ["Nicolai Bjerre Pedersen <mr.bjerre@gmail.com>"]
+readme = "README.md"
+packages = [{include = "span_extructure"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+spacy = [
+    { extras = ["apple"], version = "^3.4.1", markers = "sys_platform == 'darwin'" },
+    { version = "^3.4.1", markers = "sys_platform != 'darwin'" }
+]
+
+
+[tool.poetry.group.test.dependencies]
+pytest-cov = "^4.0.0"
+pyright = "^1.1.273"
+
+
+[tool.poetry.group.develop.dependencies]
+black = "^22.8.0"
+isort = "^5.10.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pyright]
+exclude = [
+    "**/.venv",
+]
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-r a -s"
+testpaths = [
+    "tests",
+]
+
+[tool.coverage]
+    [tool.coverage.run]
+
+    source = ["span_extructure"]
+    branch = true
+
+    [tool.coverage.report]
+    exclude_lines = [
+        "# noqa",
+        "raise NotImplementedError"
+    ]
+    fail_under = 75
+    show_missing = true
+
+[tool.poetry.plugins."spacy_factories"]
+make_span_extructure = "span_extructure:make_span_extructure"
