@@ -1,5 +1,7 @@
 # Span Extructure
 
+[![codecov](https://codecov.io/gh/mr-bjerre/span-extructure/branch/main/graph/badge.svg?token=MSMW9LZLA0)](https://codecov.io/gh/mr-bjerre/span-extructure)
+
 You might think the name is mispelled but it ain't. It is a word play on [spaCy's](https://spacy.io/) `Span`, _extract_ and _structure_. `span_exctructure` is a spaCy component that builds upon `SpanRuler` and regex to extract structured information, e.g. dates, amounts with currency and multipliers etc.
 
 ## Installation
